@@ -14,6 +14,12 @@ class UserService{
     return data.map((e) => User.fromJson(e)).toList();
   }
 
+  Future<User?> getUserById(int id) async{
+    final data = await entityManager.database.query('user', where: 'id = ?', whereArgs: [id]);
+    if(data.length == 0) return null;
+    return User.fromJson(data.single);
+  }
+
   /// Create the new user
   ///
   /// @param user [User]

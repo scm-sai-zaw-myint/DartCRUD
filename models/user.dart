@@ -16,16 +16,17 @@ class User extends Table {
   String? address;
 
   /// ## Constructor
-  /// - the user constructor with all arguments
+  /// The user constructor with all arguments
   ///
-  /// @param id       [int] <br>
-  /// @param name     [String] <br>
-  /// @param age      [int] <br>
-  /// @param address  [String] <br>
+  /// [Parameters]:
+  ///  - @param id       [int]
+  ///  - @param name     [String]
+  ///  - @param age      [int]
+  ///  - @param address  [String]
   User(this.id, this.name, this.age, this.address) : super();
 
   /// ## Constructor
-  /// - the named constructor for user
+  /// The named constructor for user
   User.empty();
 
   @override
@@ -61,6 +62,6 @@ class User extends Table {
 
   @override
   String toString() {
-    return 'id: $id, name: $name, age: $age, address: $address';
+    return '{id: $id, name: $name, age: $age, address: $address}';
   }
 }
