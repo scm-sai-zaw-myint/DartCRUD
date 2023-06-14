@@ -1,7 +1,4 @@
-
 *.xml
 .dart_tool/
-.idea/
-.idea/
 .idea/
 *.db
