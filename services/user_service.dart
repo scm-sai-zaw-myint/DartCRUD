@@ -36,8 +36,6 @@ class UserService{
   /// 
   /// Parameters:
   /// - user [User]
-  /// 
-  /// @return [Future<void>]
   Future<void> createUser(User user) async{
     await entityManager.database.insert(user.getClassName(), user.toJson());
   }
@@ -48,8 +46,6 @@ class UserService{
   ///
   /// Parameters:
   /// - user [User]
-  /// 
-  /// @return [Future<void>]
   Future<void> updateUser(User user) async{
     await entityManager.database.update(user.getClassName(),user.toJson(), where: 'id = ?', whereArgs: [user.id]);
   }
@@ -60,8 +56,6 @@ class UserService{
   ///
   /// Parameters
   /// - user [User]
-  /// 
-  /// @return [Future<void>]
   Future<void> deleteUser(int id) async{
     await entityManager.database.delete('user', where: 'id = ?' , whereArgs: [id]);
   }

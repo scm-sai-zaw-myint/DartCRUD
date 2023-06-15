@@ -71,6 +71,6 @@ class User extends Table {
 
   @override
   String toString() {
-    return '{id: $id, name: $name, age: $age, address: $address}';
+    return '${this.toJson()}';
   }
 }

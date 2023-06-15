@@ -22,8 +22,6 @@ Future<void> main() async {
 /// Command
 /// 
 /// The asynchronous function to run the command
-/// 
-/// @return [Future<void>]
 Future<void> command() async {
   print('User CRUD operation');
   print('------------------');
@@ -50,8 +48,6 @@ Future<void> command() async {
 /// 
 /// Parameters
 ///  - [String] option
-/// 
-/// @return [Future<void>]
 Future<void> execute(String? option) async {
   switch (option) {
     case 'list':
@@ -76,8 +72,6 @@ Future<void> execute(String? option) async {
 /// CreateUser
 /// 
 /// The asynchronous function to create user
-/// 
-/// @return [Future<void>]
 Future<void> createUser() async {
   print('Creating a new user');
   print('-------------------');
@@ -101,8 +95,6 @@ Future<void> createUser() async {
 /// updateUser
 /// 
 /// The asynchronous function to update user
-/// 
-/// @return [Future<void>]
 Future<void> updateUser() async {
   print('Updating a user');
   print('----------------');
@@ -145,8 +137,6 @@ Future<void> updateUser() async {
 /// DeleteUser
 /// 
 /// The asynchronous function to deleate user
-/// 
-/// @return [Future<void>]
 Future<void> deleteUser() async {
   print('Deleting a user');
   print('----------------');
