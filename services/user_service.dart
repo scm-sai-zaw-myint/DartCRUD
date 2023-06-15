@@ -6,39 +6,62 @@ import '../models/user.dart';
 /// @author SaiZawMyint
 class UserService{
 
-  /// Get all the users from database
+  /// getAllUsers
+  /// 
+  /// Get all the users from database.
   ///
   /// @return [Future<List<User>>]
   Future<List<User>> getAllUsers() async{
     final data = await entityManager.database.query('user');
-    return data.map((e) => User.fromJson(e)).toList();
+    return data.map((user) => User.fromJson(user)).toList();
   }
 
+  /// getUserById
+  /// 
+  /// Get user by id.
+  /// 
+  /// Parameters: 
+  /// - id [int]
+  /// 
+  /// @return [Future<User?>]
   Future<User?> getUserById(int id) async{
     final data = await entityManager.database.query('user', where: 'id = ?', whereArgs: [id]);
     if(data.length == 0) return null;
     return User.fromJson(data.single);
   }
 
-  /// Create the new user
+  /// createUser
+  /// 
+  /// Create the new user.
   /// 
   /// Parameters:
   /// - user [User]
+  /// 
+  /// @return [Future<void>]
   Future<void> createUser(User user) async{
     await entityManager.database.insert(user.getClassName(), user.toJson());
   }
 
-  /// Update the user
+  /// updateUser
+  /// 
+  /// Update the user.
   ///
   /// Parameters:
   /// - user [User]
+  /// 
+  /// @return [Future<void>]
   Future<void> updateUser(User user) async{
     await entityManager.database.update(user.getClassName(),user.toJson(), where: 'id = ?', whereArgs: [user.id]);
   }
-  /// Delete the user
+
+  /// deleteUser
+  /// 
+  /// Delete the user.
   ///
   /// Parameters
   /// - user [User]
+  /// 
+  /// @return [Future<void>]
   Future<void> deleteUser(int id) async{
     await entityManager.database.delete('user', where: 'id = ?' , whereArgs: [id]);
   }

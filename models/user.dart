@@ -29,6 +29,19 @@ class User extends Table {
   /// The named constructor for user
   User.empty();
 
+  
+  /// fromJson
+  /// 
+  /// the class factory method to convert json object to class member object
+  /// 
+  /// Parameters:
+  /// - json [Map<String, dynamic>]
+  /// 
+  /// @return [User]
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(json['id'], json['name'], json['age'], json['address']);
+  }
+
   @override
   Map<String, dynamic> toJson() {
     return {
@@ -37,10 +50,6 @@ class User extends Table {
       'age': this.age,
       'address': this.address
     };
-  }
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(json['id'], json['name'], json['age'], json['address']);
   }
 
   @override

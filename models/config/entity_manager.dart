@@ -12,7 +12,7 @@ class EntityManager {
   late Database _database;
 
   /// ## Constructor
-  /// the initialize the [sqlflite]
+  /// the initialize the [sqflite]
   EntityManager(){
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
@@ -20,8 +20,12 @@ class EntityManager {
 
   /// To initialize the database
   ///
+  /// 
   /// Parameters:
-  /// - tables [List<Table>]
+  ///  - tables [List<Table>]
+  /// 
+  /// @return [Future<void>]
+  /// 
   Future<void> initDatabase(List<Table> tables) async{
     this._database = await openDatabase('$projectPath\\Test.db');
      await _checkTables(tables);
@@ -30,6 +34,8 @@ class EntityManager {
   ///
   /// Parameters:
   /// - tables [List<Table>?]
+  /// 
+  /// @return [Future<void>]
   Future<void> _checkTables(List<Table>? tables) async{
     if(tables == null || tables.length ==0){return;}
     tables.forEach((table) async {
