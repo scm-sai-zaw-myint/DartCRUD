@@ -21,21 +21,24 @@ class UserService{
   }
 
   /// Create the new user
-  ///
-  /// @param user [User]
+  /// 
+  /// Parameters:
+  /// - user [User]
   Future<void> createUser(User user) async{
     await entityManager.database.insert(user.getClassName(), user.toJson());
   }
 
   /// Update the user
   ///
-  /// @param user [User]
+  /// Parameters:
+  /// - user [User]
   Future<void> updateUser(User user) async{
     await entityManager.database.update(user.getClassName(),user.toJson(), where: 'id = ?', whereArgs: [user.id]);
   }
   /// Delete the user
   ///
-  /// @param user [User]
+  /// Parameters
+  /// - user [User]
   Future<void> deleteUser(int id) async{
     await entityManager.database.delete('user', where: 'id = ?' , whereArgs: [id]);
   }

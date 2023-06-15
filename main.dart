@@ -4,15 +4,25 @@ import 'models/config/entity_manager.dart';
 import 'models/user.dart';
 import 'services/user_service.dart';
 
+/// The current project path
 final projectPath = Directory.current.path;
+
+/// the entiry manager
 final entityManager = EntityManager();
+
+/// the user service
 final userService = UserService();
 
+/// main function
 Future<void> main() async {
   await entityManager.initDatabase([User.empty()]);
   await command();
 }
 
+
+/// Command
+/// 
+/// The asynchronous function to run the command
 Future<void> command() async {
   print('User CRUD operation');
   print('------------------');
@@ -33,6 +43,12 @@ Future<void> command() async {
   }
 }
 
+/// Execute
+/// 
+/// To execute the command options.
+/// 
+/// Parameters
+///  - [String] option
 Future<void> execute(String? option) async {
   switch (option) {
     case 'list':

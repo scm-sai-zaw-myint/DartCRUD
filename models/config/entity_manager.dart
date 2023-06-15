@@ -20,14 +20,16 @@ class EntityManager {
 
   /// To initialize the database
   ///
-  /// @param tables [List<Table>]
+  /// Parameters:
+  /// - tables [List<Table>]
   Future<void> initDatabase(List<Table> tables) async{
     this._database = await openDatabase('$projectPath\\Test.db');
      await _checkTables(tables);
   }
   /// To check the tables
   ///
-  /// @param tables [List<Table>?]
+  /// Parameters:
+  /// - tables [List<Table>?]
   Future<void> _checkTables(List<Table>? tables) async{
     if(tables == null || tables.length ==0){return;}
     tables.forEach((table) async {

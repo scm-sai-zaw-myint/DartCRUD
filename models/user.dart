@@ -19,10 +19,10 @@ class User extends Table {
   /// The user constructor with all arguments
   ///
   /// [Parameters]:
-  ///  - @param id       [int]
-  ///  - @param name     [String]
-  ///  - @param age      [int]
-  ///  - @param address  [String]
+  ///  - id       [int]
+  ///  - name     [String]
+  ///  - age      [int]
+  ///  - address  [String]
   User(this.id, this.name, this.age, this.address) : super();
 
   /// ## Constructor
